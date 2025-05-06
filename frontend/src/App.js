@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+
 function App() {
   const [text, setText] = useState('');
   const [image, setImage] = useState(null);
@@ -21,10 +22,28 @@ function App() {
     <div className="App p-4">
       <h1 className="text-2xl mb-4">Phi-4 Multimodal Chat</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-2">
-        <textarea value={text} onChange={e => setText(e.target.value)} placeholder="Enter text prompt" className="border p-2 w-full" />
-        <input type="file" accept="image/*" onChange={e => setImage(e.target.files[0])} />
-        <input type="file" accept="audio/*" onChange={e => setAudio(e.target.files[0])} />
-        <button type="submit" className="bg-blue-600 text-white p-2 rounded">Submit</button>
+        <textarea
+          value={text}
+          onChange={e => setText(e.target.value)}
+          placeholder="Enter text prompt"
+          className="border p-2 w-full"
+        />
+        <input
+          type="file"
+          accept="image/*"
+          onChange={e => setImage(e.target.files[0])}
+        />
+        <input
+          type="file"
+          accept="audio/*"
+          onChange={e => setAudio(e.target.files[0])}
+        />
+        <button
+          type="submit"
+          className="bg-blue-600 text-white p-2 rounded"
+        >
+          Submit
+        </button>
       </form>
       {response && (
         <div className="mt-4">
@@ -35,4 +54,5 @@ function App() {
     </div>
   );
 }
+
 export default App;
